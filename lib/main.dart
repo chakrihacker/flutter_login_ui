@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashScreen(),
     );
   }
 }
@@ -28,8 +28,87 @@ class MyApp extends StatelessWidget {
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    return new Scaffold(
+        backgroundColor: Color.fromRGBO(248, 248, 248, 1),
+        appBar: new AppBar(
+          title: new Text("Login"),
+        ),
+        body: SafeArea(
+            top: false,
+            bottom: false,
+            child: new ListView(
+              children: <Widget>[
+                new Card(
+                  elevation: 4.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: new TextFormField(
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromRGBO(255, 255, 255, 1),
+                        prefixIcon: const Icon(Icons.email),
+                        hintText: 'Enter your Email',
+                        labelText: 'Email',
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30)))),
+                  ),
+                ),
+                new Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: new Card(
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(255, 255, 255, 1),
+                            prefixIcon: const Icon(Icons.vpn_key),
+                            hintText: 'Enter your Password',
+                            labelText: 'Password',
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30)))),
+                      ),
+                    )),
+                new Text(
+                  "Forgot Password?",
+                  textAlign: TextAlign.right,
+                ),
+                new Container(
+                  padding: EdgeInsets.only(top: 150, bottom: 125),
+                  child: new RaisedButton(
+                    padding: EdgeInsets.all(15.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    color: Color.fromRGBO(244, 92, 31, 1),
+                    onPressed: () => null,
+                    child: new Text(
+                      "Login",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Text("Don't have an Account?"),
+                    new FlatButton(
+                      onPressed: () => null,
+                      child: Text(
+                        "Register",
+                        style: TextStyle(color: Color.fromRGBO(244, 92, 31, 1)),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            )));
   }
 }
 
