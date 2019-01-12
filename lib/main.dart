@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,36 +29,57 @@ class MyApp extends StatelessWidget {
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Color.fromRGBO(244, 92, 31, 1),
+    ));
     return new Scaffold(
         backgroundColor: Color.fromRGBO(248, 248, 248, 1),
-        appBar: new AppBar(
-          title: new Text("Login"),
-        ),
         body: SafeArea(
             top: false,
             bottom: false,
             child: new ListView(
               children: <Widget>[
-                new Card(
-                  elevation: 4.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: new TextFormField(
-                    decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromRGBO(255, 255, 255, 1),
-                        prefixIcon: const Icon(Icons.email),
-                        hintText: 'Enter your Email',
-                        labelText: 'Email',
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30)))),
-                  ),
-                ),
+                new Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [Color(0xFFF5591F), Color(0xFFF5871F)]),
+                        color: Color.fromRGBO(244, 92, 31, 1),
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(100))),
+                    // color: Color.fromRGBO(244, 92, 31, 1),
+                    height: 200,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 55, vertical: 150),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                      textAlign: TextAlign.end,
+                    )),
                 new Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    child: new Card(
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: new TextFormField(
+                        decoration: const InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(255, 255, 255, 1),
+                            prefixIcon: const Icon(Icons.email),
+                            hintText: 'Enter your Email',
+                            labelText: 'Email',
+                            border: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30)))),
+                      ),
+                    )),
+                new Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                     child: new Card(
                       elevation: 4.0,
                       shape: RoundedRectangleBorder(
@@ -75,25 +97,35 @@ class SplashScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(30)))),
                       ),
                     )),
-                new Text(
-                  "Forgot Password?",
-                  textAlign: TextAlign.right,
-                ),
-                new Container(
-                  padding: EdgeInsets.only(top: 150, bottom: 125),
-                  child: new RaisedButton(
-                    padding: EdgeInsets.all(15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    color: Color.fromRGBO(244, 92, 31, 1),
-                    onPressed: () => null,
-                    child: new Text(
-                      "Login",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
+                new Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    child: new FlatButton(
+                      onPressed: () => null,
+                      child: new Align(
+                        alignment: Alignment.centerRight,
+                        child: new Text(
+                          "Forgot Password?",
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    )),
+                new Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    child: new Container(
+                      padding: EdgeInsets.only(top: 40, bottom: 25),
+                      child: new RaisedButton(
+                        padding: EdgeInsets.all(15.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        color: Color.fromRGBO(244, 92, 31, 1),
+                        onPressed: () => null,
+                        child: new Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )),
                 new Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
